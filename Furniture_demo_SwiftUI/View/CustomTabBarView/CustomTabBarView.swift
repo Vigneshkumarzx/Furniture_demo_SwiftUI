@@ -9,49 +9,23 @@ import SwiftUI
 
 struct CustomTabBarView: View {
     
-    @State private var currentTab: Tab = .Home
-    
-    init() {
-        UITabBar.appearance().isHidden = true
-    }
+    @Binding private var currentTab: Tab
     @State private var currentXValue: CGFloat = 0
-    @Namespace var animation
+    var animation: Namespace.ID
     
     var body: some View {
-        TabView(selection: $currentTab) {
-            Text("Home")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-//                .background(Color("Color2"))
-                .tag(Tab.Home)
-            Text("Search")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-               // .background(Color("Color2"))
-                .background(Color.black)
-                .tag(Tab.Search)
-            Text("Notification")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-               // .background(Color("Color2"))
-                .tag(Tab.Notification)
-            Text("Settings")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-              //  .background(Color("Color2"))
-                .tag(Tab.Account)
-        }
-        .overlay(
-            HStack(spacing: 0) {
-                ForEach(Tab.allCases, id: \.rawValue) { tab in
-                    TabButton(tab: tab)
-                }
+        HStack(spacing: 0) {
+            ForEach(Tab.allCases, id: \.rawValue) { tab in
+                TabButton(tab: tab)
             }
-            .padding(.vertical)
-            .padding(.bottom, getdafeArea().bottom == 0 ? 10 : getdafeArea().bottom - 10)
-            .background(
-                MaterialEffect(style: .systemUltraThinMaterialDark)
-                    .clipShape(BottomCurve(currentXValue: currentXValue))
-            )
-            ,alignment: .bottom)
-        .ignoresSafeArea(.all, edges: .bottom)
-        .preferredColorScheme(.dark)
+        }
+        .padding(.vertical)
+        .padding(.bottom, getdafeArea().bottom == 0 ? 10 : getdafeArea().bottom - 10)
+        .background(Color.white)
+        .shadow(color: Color("Black").opacity(0.08), radius: 5, x: 0, y: -5)
+        .clipShape(BottomCurve(currentXValue: currentXValue))
+        .ignoresSafeArea(.container, edges: .bottom)
+        
     }
     
     @ViewBuilder
@@ -64,7 +38,7 @@ struct CustomTabBarView: View {
                     currentXValue = proxy.frame(in: .global).midX
                 }
             }, label: {
-                Image(systemName: tab.rawValue)
+                Image(tab.rawValue)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 25, height: 25)
@@ -74,8 +48,8 @@ struct CustomTabBarView: View {
                     .background(
                         ZStack {
                             if currentTab == tab {
-                                MaterialEffect(style: .systemMaterialDark)
-                                    .clipShape(Circle())
+                                Circle()
+                                    .fill(Color("Orange"))
                                     .matchedGeometryEffect(id: "TAB", in: animation)
                             }
                         }
@@ -95,16 +69,16 @@ struct CustomTabBarView: View {
         .frame(height: 30)
     }
 }
-
-#Preview {
-    CustomTabBarView()
-}
+//
+//#Preview {
+//    CustomTabBarView()
+//}
 
 enum Tab: String, CaseIterable {
-    case Home = "house.fill"
-    case Search = "magnifyingglass"
-    case Notification = "bell.fill"
-    case Account = "person.crop.circle.fill"
+    case Home = "home"
+    case Search = "cart"
+    case Notification = "star"
+    case Account = "search"
 }
 
 

@@ -42,6 +42,6 @@ struct BottomCurve: Shape {
     }
 }
 
-#Preview {
-    CustomTabBarView()
-}
+//#Preview {
+//    CustomTabBarView()
+//}
