@@ -7,12 +7,8 @@
 
 import SwiftUI
 
-struct AppViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+class AppViewModel: ObservableObject {
 
-#Preview {
-    AppViewModel()
+    @Published var currentTab: Tab = .Home
+    @Published var currentMenu: String = "All"
 }

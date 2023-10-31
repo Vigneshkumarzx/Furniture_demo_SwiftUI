@@ -9,23 +9,30 @@ import SwiftUI
 
 struct CustomTabBarView: View {
     
-    @Binding private var currentTab: Tab
-    @State private var currentXValue: CGFloat = 0
+    @Binding  var currentTab: Tab
+    @State var currentXValue: CGFloat = 0
     var animation: Namespace.ID
     
     var body: some View {
         HStack(spacing: 0) {
             ForEach(Tab.allCases, id: \.rawValue) { tab in
                 TabButton(tab: tab)
+                    .overlay {
+                        Text(tab.rawValue)
+                            .font(.system(size: 14, weight: .semibold))
+                            .foregroundStyle(Color.gray)
+                            .offset(y: currentTab == tab ? 15 : 100)
+                    }
             }
         }
-        .padding(.vertical)
-        .padding(.bottom, getdafeArea().bottom == 0 ? 10 : getdafeArea().bottom - 10)
-        .background(Color.white)
-        .shadow(color: Color("Black").opacity(0.08), radius: 5, x: 0, y: -5)
-        .clipShape(BottomCurve(currentXValue: currentXValue))
-        .ignoresSafeArea(.container, edges: .bottom)
-        
+        .padding(.top)
+        .padding(.bottom, getdafeArea().bottom == 0 ? 15 : 10)
+        .background {
+            Color.gray.opacity(0.08)
+                .shadow(color: Color("Black").opacity(0.08), radius: 5, x: 0, y: -5)
+                .clipShape(BottomCurve(currentXValue: currentXValue))
+                .ignoresSafeArea(.container, edges: .bottom)
+        }
     }
     
     @ViewBuilder
@@ -33,23 +40,25 @@ struct CustomTabBarView: View {
         GeometryReader { proxy in
             
             Button(action: {
-                withAnimation(.spring()) {
+                withAnimation(.easeInOut) {
                     currentTab = tab
                     currentXValue = proxy.frame(in: .global).midX
                 }
             }, label: {
                 Image(tab.rawValue)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .renderingMode(.template)
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: 25, height: 25)
                     .frame(maxWidth: .infinity)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(currentTab == tab ? .white : .gray.opacity(0.8))
                     .padding(currentTab == tab ? 15 : 0)
                     .background(
                         ZStack {
                             if currentTab == tab {
                                 Circle()
-                                    .fill(Color("Orange"))
+                                    .fill(Color.orange)
+                                    .shadow(color: Color("Black").opacity(0.1), radius: 5, x: 8, y: 5)
                                     .matchedGeometryEffect(id: "TAB", in: animation)
                             }
                         }
@@ -75,10 +84,10 @@ struct CustomTabBarView: View {
 //}
 
 enum Tab: String, CaseIterable {
-    case Home = "home"
-    case Search = "cart"
-    case Notification = "star"
-    case Account = "search"
+    case Home = "Home"
+    case Cart = "Cart"
+    case Fav = "Favorite"
+    case Profile = "Profile"
 }
 
 

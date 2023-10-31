@@ -14,6 +14,9 @@
 		420A71A42AEF82BC005FB3B0 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420A71A32AEF82BC005FB3B0 /* CustomTabBarView.swift */; };
 		420A71A62AEF8BEB005FB3B0 /* MaterialEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420A71A52AEF8BEB005FB3B0 /* MaterialEffect.swift */; };
 		420A71A82AEFA88B005FB3B0 /* BottomCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420A71A72AEFA88B005FB3B0 /* BottomCurve.swift */; };
+		420A71AB2AEFB8F9005FB3B0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420A71AA2AEFB8F9005FB3B0 /* MainView.swift */; };
+		420A71AD2AEFBA95005FB3B0 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420A71AC2AEFBA95005FB3B0 /* AppViewModel.swift */; };
+		4226CBB62AEFC4A9004DBF3A /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226CBB52AEFC4A9004DBF3A /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		420A71A32AEF82BC005FB3B0 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 		420A71A52AEF8BEB005FB3B0 /* MaterialEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialEffect.swift; sourceTree = "<group>"; };
 		420A71A72AEFA88B005FB3B0 /* BottomCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCurve.swift; sourceTree = "<group>"; };
+		420A71AA2AEFB8F9005FB3B0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		420A71AC2AEFBA95005FB3B0 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		4226CBB52AEFC4A9004DBF3A /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +85,9 @@
 		420A71A02AEF81E8005FB3B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				420A71A32AEF82BC005FB3B0 /* CustomTabBarView.swift */,
-				420A71A52AEF8BEB005FB3B0 /* MaterialEffect.swift */,
-				420A71A72AEFA88B005FB3B0 /* BottomCurve.swift */,
+				420A71A92AEFB8D1005FB3B0 /* CustomTabBarView */,
+				420A71AA2AEFB8F9005FB3B0 /* MainView.swift */,
+				4226CBB52AEFC4A9004DBF3A /* Home.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -89,6 +95,7 @@
 		420A71A12AEF81F0005FB3B0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				420A71AC2AEFBA95005FB3B0 /* AppViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -98,6 +105,16 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		420A71A92AEFB8D1005FB3B0 /* CustomTabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				420A71A32AEF82BC005FB3B0 /* CustomTabBarView.swift */,
+				420A71A52AEF8BEB005FB3B0 /* MaterialEffect.swift */,
+				420A71A72AEFA88B005FB3B0 /* BottomCurve.swift */,
+			);
+			path = CustomTabBarView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,9 +188,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				420A71A42AEF82BC005FB3B0 /* CustomTabBarView.swift in Sources */,
+				420A71AB2AEFB8F9005FB3B0 /* MainView.swift in Sources */,
+				420A71AD2AEFBA95005FB3B0 /* AppViewModel.swift in Sources */,
 				420A71952AEF79C8005FB3B0 /* ContentView.swift in Sources */,
 				420A71A82AEFA88B005FB3B0 /* BottomCurve.swift in Sources */,
 				420A71932AEF79C8005FB3B0 /* Furniture_demo_SwiftUIApp.swift in Sources */,
+				4226CBB62AEFC4A9004DBF3A /* Home.swift in Sources */,
 				420A71A62AEF8BEB005FB3B0 /* MaterialEffect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
